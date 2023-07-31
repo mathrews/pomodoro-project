@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+:root {
+    --background: #1E2240;
+    --bckgTempos: #11162b;
+    --corFonte1: #D7DFF8;
+    --corFonte2: #3B4059;
+    --corFonte3: #141A31;
+    --corShadowDiv: #252C55;
+    --corGradient1: #1E2240;
+    --corGradient2: #282A50;
+    --corActive-contador: #E47176;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28%;
+    padding: 16px;
+}
+
+main section{
+    flex: 1;
+}
+
+main section:first-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    margin-top: 0.50em;
+
+}
+
+main section:first-child h1{
+    color: var(--corFonte1);
+}
+
+main section:first-child #tempos {
+    display: flex;
+    background-color: var(--bckgTempos);
+    height: 3.50em;
+    align-items: center;
+    padding: 8px;
+    border-radius: 46px;
+}
+
+main section:first-child #tempos li {
+    color: var(--corFonte2);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.70em;
+    width: 8.50em;
+    border-radius: 46px;
+    transition: all ease 200ms;
+}
+
+main section:first-child #tempos li.active {
+    background-color: var(--corActive-contador);
+    color: var(--corFonte3);
+}
+
+main section:nth-child(2) {
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32%;
+    padding: 16px;
+}
