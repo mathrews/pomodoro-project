@@ -74,6 +74,7 @@ main section:first-child #tempos li {
     width: 8.50em;
     border-radius: 46px;
     transition: all ease 200ms;
+    cursor: pointer;
 }
 
 main section:first-child #tempos li.active {
