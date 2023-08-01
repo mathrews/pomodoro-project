@@ -13,32 +13,31 @@
     --background: #1E2240;
     --bckgTempos: #11162b;
     --corFonte1: #D7DFF8;
-    --corFonte2: #3B4059;
+    --corFonte2: #444961;
     --corFonte3: #141A31;
+    --corEngrenagem: #6E7190;
     --corShadowDiv: #252C55;
-    --corGradient1: #1E2240;
+    --corGradient1: #141A31;
     --corGradient2: #282A50;
     --corActive-contador: #E47176;
 }
 
 body {
     width: 100%;
-    height: 100vh;
     background-color: var(--background);
 }
 
 main {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 28%;
+    gap: 3em;
     padding: 16px;
 }
 
-main section{
+main section {
     flex: 1;
 }
 
@@ -83,7 +82,6 @@ main section:first-child #tempos li.active {
 }
 
 main section:nth-child(2) {
-    border: 1px solid red;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -91,4 +89,63 @@ main section:nth-child(2) {
     align-items: center;
     gap: 32%;
     padding: 16px;
+}
+
+main section:nth-child(2) .container {
+    background-image: linear-gradient(130deg, var(--corGradient1) 40%, var(--corGradient2));
+    width: 15.5em;
+    height: 15.5em;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: -15px -10px 20px var(--corShadowDiv);
+}
+
+main section:nth-child(2) .container #circulo {
+    position: relative;
+    background: conic-gradient(var(--corActive-contador), 0deg, var(--corGradient1) 0deg);
+    width: 13.5em;
+    height: 13.5em;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+main section:nth-child(2) .container #circulo::before {
+    content: "";
+    position: absolute;
+    height: 12em;
+    width: 12em;
+    border-radius: 100%;
+    background-color: var(--corGradient1);
+}
+
+main section:nth-child(2) .container #circulo .circulo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+main section:nth-child(2) .container #circulo .circulo-content h1 {
+    font-size: 50px;
+    color: var(--corFonte1);
+}
+
+main section:nth-child(2) .container #circulo .circulo-content p {
+    color: var(--corFonte1);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+main i {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--corEngrenagem);
 }
