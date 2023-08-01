@@ -25,6 +25,7 @@
 }
 
 body {
+    position: relative;
     width: 100%;
     background-color: var(--background);
 }
@@ -152,17 +153,38 @@ main section:nth-child(2) .container #circulo .circulo-content p {
     text-transform: uppercase;
 }
 
+#overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #00000060;
+    z-index: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
 #modal {
     width: 550px;
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    left: calc();
+    left: calc(50% - 275px);
     background-color: var(--white);
     border-radius: 20px;
     padding: 20px 40px;
     transition-duration: 200ms;
     transition-delay: 200ms;
+    opacity: 0;
+    visibility: hidden;
 }
 
+#overlay.activeOverlay {
+    opacity: 1;
+    visibility: visible;
+}
 
+#modal.activeModal {
+    opacity: 1;
+    visibility: visible;
+}
