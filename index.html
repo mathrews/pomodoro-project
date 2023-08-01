@@ -30,6 +30,50 @@
         <i class="fa-solid fa-gear"></i>
     </main>
 
+    <section id="overlay"></section>
+    <section id="modal">
+        <form>
+            <h1>
+                Settings <i class="fa-solid fa-xmark"></i>
+            </h1>
+            <section id="containerFormModal">
+                <section id="pomodoroConfigMinutes">
+                    <p>
+                        time (minutes)
+                    </p>
+                    <label for="pomodoroLabel">
+                        pomodoro
+                    </label>
+                    <input type="number" min="0" name="pomodoroLabel"   id="pomodoroLabel">
+                    <label for="shortBreakLabel">
+                        short break
+                    </label>
+                    <input type="number" min="0" name="shortBreakLabel" id="shortBreakLabel">
+                    <label for="longBreakLabel">
+                        long break
+                    </label>
+                    <input type="number" min="0" name="longBreakLabel" id="longBreakLabel">
+                </section>
+                <section id="fontsModal">
+                    <h2>font</h2>
+                    <div>
+                        <span>Aa</span>
+                        <span>Aa</span>
+                        <span>Aa</span>
+                    </div>
+                </section>
+                <section id="colorsModal">
+                    <h2>color</h2>
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </section>
+            </section>
+        </form>
+    </section>
+
     <script src="js/scripts.js"></script>
 </body>
 </html>

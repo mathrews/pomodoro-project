@@ -7,9 +7,11 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Merriweather Sans', sans-serif;
+    outline: none;
 }
 
 :root {
+    --white: #ffffff;
     --background: #1E2240;
     --bckgTempos: #11162b;
     --corFonte1: #D7DFF8;
@@ -35,6 +37,13 @@ main {
     align-items: center;
     gap: 3em;
     padding: 16px;
+    position: relative;
+}
+
+main i {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--corEngrenagem);
 }
 
 main section {
@@ -47,7 +56,6 @@ main section:first-child{
     align-items: center;
     gap: 26px;
     margin-top: 0.50em;
-
 }
 
 main section:first-child h1{
@@ -144,8 +152,17 @@ main section:nth-child(2) .container #circulo .circulo-content p {
     text-transform: uppercase;
 }
 
-main i {
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--corEngrenagem);
+#modal {
+    width: 550px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc();
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 20px 40px;
+    transition-duration: 200ms;
+    transition-delay: 200ms;
 }
+
+
