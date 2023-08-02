@@ -27,14 +27,14 @@
                 </div>
             </span>
         </section>
-        <i class="fa-solid fa-gear"></i>
+        <i class="fa-solid fa-gear" id="btnGear"></i>
     </main>
 
     <section id="overlay"></section>
     <section id="modal">
-        <form>
+        <form onsubmit="submitar()">
             <h1>
-                Settings <i class="fa-solid fa-xmark"></i>
+                Settings <i id="btnCrossModal" class="fa-solid fa-xmark"></i>
             </h1>
             <section id="containerFormModal">
                 <section id="pomodoroConfigMinutes">
@@ -43,22 +43,22 @@
                     </h5>
                     <ul>
                         <li>
-                            <label for="pomodoroLabel">
+                            <label for="pomodoroMinutes">
                             pomodoro
                             </label>
-                            <input type="number" min="0" name="pomodoroLabel"   id="pomodoroLabel">
+                            <input type="number" min="0" name="pomodoroMinutes"  id="pomodoroMinutes">
                         </li>
                         <li>
-                            <label for="shortBreakLabel">
+                            <label for="shortBreakMinutes">
                                 short break
                             </label>
-                            <input type="number" min="0" name="shortBreakLabel" id="shortBreakLabel">
+                            <input type="number" min="0" name="shortBreakMinutes" id="shortBreakMinutes">
                         </li>
                         <li>
-                            <label for="longBreakLabel">
+                            <label for="longBreakMinutes">
                                 long break
                             </label>
-                            <input type="number" min="0" name="longBreakLabel" id="longBreakLabel">
+                            <input type="number" min="0" name="longBreakMinutes" id="longBreakMinutes">
                         </li>
                     </ul>
                 </section>

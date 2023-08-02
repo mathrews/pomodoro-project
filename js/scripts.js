@@ -18,3 +18,33 @@ longBreakMode.onclick = () => {
     pomodoroMode.classList.remove('active');
 }
 
+btnGear.onclick = () => {
+    overlay.classList.add('activeOverlay')
+    modal.classList.add('activeModal')
+}
+
+overlay.onclick = () => {
+    overlay.classList.remove('activeOverlay')
+    modal.classList.remove('activeModal')
+}
+
+btnCrossModal.onclick = () => {
+    overlay.classList.remove('activeOverlay')
+    modal.classList.remove('activeModal')
+}
+
+let configDeCadaTempo = JSON.parse(localStorage.getItem('configuracaoDoTempo')) || [];
+
+function submitar(){
+    event.preventDefault();
+    let configDoTempo = {
+        tempoPomodoro: Number(pomodoroMinutes.value),
+        tempoShort: Number(shortBreakMinutes.value),
+        tempoLong: Number(longBreakMinutes.value)
+    };
+    configDeCadaTempo.push(configDoTempo);
+    localStorage.setItem('configuraçaoDoTempo', JSON.stringify(configDeCadaTempo));
+    overlay.classList.remove('activeOverlay');
+    modal.classList.remove('activeModal');
+    console.log(configDoTempo);
+}
