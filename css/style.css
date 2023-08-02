@@ -172,7 +172,7 @@ main section:nth-child(2) .container #circulo .circulo-content p {
     left: calc(50% - 275px);
     background-color: var(--white);
     border-radius: 20px;
-    padding: 20px 40px;
+    padding: 30px 40px;
     transition-duration: 200ms;
     transition-delay: 200ms;
     opacity: 0;
@@ -187,4 +187,138 @@ main section:nth-child(2) .container #circulo .circulo-content p {
 #modal.activeModal {
     opacity: 1;
     visibility: visible;
+}
+
+#modal form {
+    position: relative;
+}
+
+#modal form h1 {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #00000030;
+    align-items: center;
+}
+
+#modal form h1 i {
+    color: #999daa;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#modal form #containerFormModal #pomodoroConfigMinutes h5 {
+    text-transform: uppercase;
+    padding-top: 1.2em;
+    letter-spacing: 4px;
+}
+
+#modal form #containerFormModal #pomodoroConfigMinutes ul {
+    display: flex;
+    padding-top: 0.7em;
+    border-bottom: 1px solid #00000030;
+    gap: 16px;
+    padding-bottom: 1em;
+}
+
+#modal form #containerFormModal #pomodoroConfigMinutes ul li label {
+    color: #999daa;
+    font-size: 12px;
+}
+
+#modal form #containerFormModal #pomodoroConfigMinutes ul li input {
+    background-color: #e6e8ee;
+    height: 38px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 0.5em;
+    margin-top: 6px;
+}
+
+#modal form #containerFormModal #fontsModal {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00000030;
+}
+
+#modal form #containerFormModal #fontsModal h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#modal form #containerFormModal #fontsModal ul {
+    display: flex;
+    gap: 16px;
+}
+
+#modal form #containerFormModal #fontsModal ul li {
+    cursor: pointer;
+    width: 2.2em;
+    height: 2.2em;
+    background-color: #e6e8ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition-duration: 200ms;
+}
+
+#modal form #containerFormModal #fontsModal ul li:hover {
+    background-color: #00000050;
+}
+
+#modal form #containerFormModal #fontsModal ul li.activeFonts {
+    background-color: #181630;
+    color: #ffffff;
+}
+
+#modal form #containerFormModal #colorsModal {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00000030;
+}
+
+#modal form #containerFormModal #colorsModal h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#modal form #containerFormModal #colorsModal ul {
+    display: flex;
+    gap: 16px;
+}
+
+#modal form #containerFormModal #colorsModal ul li {
+    cursor: pointer;
+    width: 2.2em;
+    height: 2.2em;
+    background-color: #F86F6A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition-duration: 200ms;
+    position: relative;
+}
+
+#modal form #submitar {
+    position: absolute;
+    background-color: var(--corActive-contador);
+    top: 100%;
+    transform: translateY(20%);
+    width: 6em;
+    height: 3em;
+    border-radius: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    left: 80%;
 }
