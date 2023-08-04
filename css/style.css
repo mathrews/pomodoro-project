@@ -83,11 +83,13 @@ main section:first-child #tempos li {
     border-radius: 46px;
     transition: all ease 200ms;
     cursor: pointer;
+    user-select: none;
 }
 
 main section:first-child #tempos li.active {
     background-color: var(--corActive-contador);
     color: var(--corFonte3);
+    user-select: none;
 }
 
 main section:nth-child(2) {
@@ -151,6 +153,16 @@ main section:nth-child(2) .container #circulo .circulo-content p {
     color: var(--corFonte1);
     letter-spacing: 6px;
     text-transform: uppercase;
+    margin-top: 6px;
+    transition-duration: 200ms;
+    padding-left: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+main section:nth-child(2) .container #circulo .circulo-content p:hover {
+    background-color: var(--corActive-contador);
 }
 
 #overlay {

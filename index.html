@@ -12,17 +12,21 @@
         <section>
             <h1>pomodoro</h1>
             <ul id="tempos">
-                <li class="pomodoro">pomodoro</li>
-                <li class="shortBreak">short break</li>
-                <li class="longBreak">long break</li>
+                <li onclick="pomodoroMode()" id="pomodoro">pomodoro</li>
+                <li onclick="shortBreakMode()" id="shortBreak">short break</li>
+                <li onclick="longBreakMode()" id="longBreak">long break</li>
             </ul>
         </section>
         <section>
             <span class="container">
                 <div id="circulo">
                     <div class="circulo-content">
-                        <h1>00:00</h1>
-                        <p>play</p>
+                        <h1>
+                            <span id="minuto">00</span>
+                            :
+                            <span id="segundos">00</span>
+                        </h1>
+                        <p id="botaoPlay" estado="i">play</p>
                     </div>
                 </div>
             </span>
@@ -32,7 +36,7 @@
 
     <section id="overlay"></section>
     <section id="modal">
-        <form onsubmit="submitar()">
+        <form id="formDosTempos" onsubmit="submitarFormConfigsDeTempo()">
             <h1>
                 Settings <i id="btnCrossModal" class="fa-solid fa-xmark"></i>
             </h1>
