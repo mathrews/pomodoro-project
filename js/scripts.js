@@ -79,7 +79,7 @@ function longBreakMode(){
     setarTempo(configDeCadaTempo[0].tempoLong);
 }
 
-botaoPlay.onclick = () => {
+function estadosBotaoPlay() {
     switch (botaoPlay.getAttribute('estado')) {
         case 'i':
             botaoPlay.setAttribute('estado', 'p')
@@ -90,4 +90,8 @@ botaoPlay.onclick = () => {
             botaoPlay.innerHTML = 'play';
         break;
     }
+}
+
+botaoPlay.onclick = () => {
+    estadosBotaoPlay();
 }
