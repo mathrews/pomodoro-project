@@ -13,39 +13,36 @@ btnCrossModal.onclick = () => {
     modal.classList.remove('activeModal')
 }
 
-let configDeCadaTempo = JSON.parse(localStorage.getItem('configuracaoDoTempo')) || [];
+let linhaDoTempo = ['POMODORO', 'SHORTBREAK', 'POMODORO', 'LONGBREAK'];
+let p_segundos = 0;
+let p_minutos = 0;
+let i_contarSegundos;
+let i_contarMinutos;
 
-function verificarExistenciaDeConfigs() {
-    if (configDeCadaTempo.length == 1) {
-        configDeCadaTempo = [];
-    }
-    localStorage.setItem('configuraçaoDoTempo', JSON.stringify(configDeCadaTempo));
-}
-
-function submitarFormConfigsDeTempo(){
+function configurarTemposFormSubmit(){
     event.preventDefault();
-    verificarExistenciaDeConfigs();
-    let configDoTempo = {
-        tempoPomodoro: Number(pomodoroMinutes.value),
-        tempoShort: Number(shortBreakMinutes.value),
-        tempoLong: Number(longBreakMinutes.value)
-    };
-    configDeCadaTempo.push(configDoTempo);
-    formDosTempos.reset();
-    localStorage.setItem('configuraçaoDoTempo', JSON.stringify(configDeCadaTempo));
     pomodoroMode();
+    formDosTempos.reset();
     overlay.classList.remove('activeOverlay');
     modal.classList.remove('activeModal');
 }
 
-function setarTempo(minutosParam) {
-    if (minutosParam) {
-        if (minutosParam < 10 && minutosParam >= 1) {
-            minuto.innerHTML = `0${minutosParam}`;
+function configurarTempos(segundos) {
+    if (segundos) {
+        if (segundos > 59) {
+            let minutos = parseInt((segundos / 60) % 60);
+            segundos = parseInt(segundos % 60);
+            minuto.innerHTML = minutos < 10 ? `0${minutos}` : minutos;
+            p_minutos = minutos;
+            segundo.innerHTML = segundos < 10 ? `0${segundos}` : segundos;
+            p_segundos = segundos;
+            return;
         }
-        else {
-            minuto.innerHTML = `${minutosParam}`;
-        }
+        segundo.innerHTML = segundos < 10 ? `0${segundos}` : segundos;
+        p_segundos = segundos;
+    } else {
+        minuto.innerHTML = '00';
+        segundo.innerHTML = '00';
     }
 }
 
@@ -53,30 +50,21 @@ function pomodoroMode(){
     pomodoro.classList.add('active');
     shortBreak.classList.remove('active');
     longBreak.classList.remove('active');
-    if (configDeCadaTempo[0].tempoPomodoro == 0) {
-        minuto.innerHTML = `00`;
-    }
-    setarTempo(configDeCadaTempo[0].tempoPomodoro);
+    configurarTempos(pomodoroMinutes.value);
 }
 
 function shortBreakMode(){
     shortBreak.classList.add('active');
     longBreak.classList.remove('active');
     pomodoro.classList.remove('active');
-    if (configDeCadaTempo[0].tempoShort == 0) {
-        minuto.innerHTML = `00`;
-    }
-    setarTempo(configDeCadaTempo[0].tempoShort);
+    configurarTempos(shortBreakMinutes.value);
 }
 
 function longBreakMode(){
     longBreak.classList.add('active');
     shortBreak.classList.remove('active');
     pomodoro.classList.remove('active');
-    if (configDeCadaTempo[0].tempoLong == 0) {
-        minuto.innerHTML = `00`;
-    }
-    setarTempo(configDeCadaTempo[0].tempoLong);
+    configurarTempos(longBreakMinutes.value);
 }
 
 function estadosBotaoPlay() {
