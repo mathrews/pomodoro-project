@@ -22,7 +22,6 @@ let i_contarMinutos;
 function configurarTemposFormSubmit(){
     event.preventDefault();
     pomodoroMode();
-    formDosTempos.reset();
     overlay.classList.remove('activeOverlay');
     modal.classList.remove('activeModal');
 }
@@ -67,17 +66,68 @@ function longBreakMode(){
     configurarTempos(longBreakMinutes.value);
 }
 
+function iniciarContagem() {    
+    controleParada = setInterval(() => {
+        contarSegundos();
+    }, 1000);
+}
+
+// função que para o cronometro.
+function pararContagem() {
+    clearInterval(controleParada);
+    pararSom();
+}
+
 function estadosBotaoPlay() {
     switch (botaoPlay.getAttribute('estado')) {
         case 'i':
             botaoPlay.setAttribute('estado', 'p')
             botaoPlay.innerHTML = 'stop';
+            iniciarContagem();
         break;
         case 'p':
-            botaoPlay.setAttribute('estado', 'i')
-            botaoPlay.innerHTML = 'play';
+            botaoPlay.setAttribute('estado', 'c')
+            botaoPlay.innerHTML = `Continue`
+            pararContagem();
+        break;
+        case 'c':
+            botaoPlay.setAttribute('estado', 'p')
+            botaoPlay.innerHTML = 'stop';
+            iniciarContagem();
         break;
     }
+}
+
+
+const audio = document.querySelector("audio");
+function iniciarSom() {
+    audio.play();  
+}
+
+function pararSom() { 
+    audio.pause();  
+}
+
+function contarSegundos(){
+    if (p_minutos <= 0) {
+        if (p_segundos == 0) {
+            segundo.innerHTML = '00';
+            clearInterval(i_contarSegundos);
+            botaoPlay.setAttribute('estado', 'i');
+            botaoPlay.innerHTML = 'play';
+            return;
+        }
+    }else{
+        if(p_segundos == 0){
+            p_segundos = 59;
+            p_minutos--;
+            minuto.innerHTML = p_minutos.innerHTML = p_minutos < 10 ? `0${p_minutos}` : p_minutos;
+            segundo.innerHTML = '59';
+            return;
+        }
+    }
+    p_segundos--
+    segundo.innerHTML = p_segundos < 10 ? `0${p_segundos}` : p_segundos;
 }
 
 botaoPlay.onclick = () => {
